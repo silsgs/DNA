@@ -3,7 +3,7 @@ import os
 
 # Constants
 
-path_to_files = '/home/silvia/Project/Mutagenesis/3mfk/complex_pdbs/'
+path_to_files = os.getcwd() + '/'
 
 file1 = path_to_files + sys.argv[1]
 out_file = path_to_files + sys.argv[1].replace('_ats.pdb', '_atoms.pdb')
