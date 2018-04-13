@@ -15,7 +15,7 @@ ini_file = path + id_case + '.ini'
 
 def define_chains(f):
     """
-    Define lig_chains to calculate its lgp from ensamble poses
+    Define lig_chains to calculate its lgp from an ensemble of poses
     """
     f = open(f, 'r')
     for i,line in enumerate(f):

@@ -1,26 +1,33 @@
 import sys
+import os
 import matplotlib
 #%matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+"""
+python histpoloter.py 
+"""
+
 # constants
-rep_no = 'rep-' + sys.argv[1]
-path = '/home/silvia/Project/Mutagenesis/3mfk/Repeats/'
+#rep_no = 'rep-' + sys.argv[1]
+
+ene_file = sys.argv[1]
+path = os.getcwd() + '/'
 
 dnt = ['A', 'T', 'G', 'C']
 
 fig = plt.figure(figsize=(15,10))
-st = fig.suptitle("Repeats - " + rep_no, x = 0.5, y = 1.03, fontsize = 17)
+st = fig.suptitle("XXX", x = 0.5, y = 1.03, fontsize = 17)
 
 n_bins = 100
 c = 0
 
 for i in dnt:
     
-    data_file = np.loadtxt(fname = path + rep_no + '/' + 'rep-' + i +'/3mfk.ene', skiprows = 2, usecols=[1,2,3,4,5])
-    
+    #data_file = np.loadtxt(fname = path + rep_no + '/' + 'rep-' + i +'/3mfk.ene', skiprows = 2, usecols=[1,2,3,4,5])
+    data_file = np.loadtxt(fname = path + sys.argv[1], skiprows = 2, usecols=[1,2,3,4,5])
     ele = data_file[ : ,0]
     desolv = data_file[ : ,1]
     VdW = data_file[ : ,2]
@@ -59,6 +66,6 @@ for i in dnt:
 
 
 plt.tight_layout()
-plt.savefig(path + 'Results-sum/' + rep_no + '/multiplot_' + rep_no +'.png', dpi=350)
+plt.savefig(path + '/multiplot_' + sys.argv[1].replace('.ene','') +'.png', dpi=350)
 plt.show()
 
